@@ -10,7 +10,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name = "DISPOSITIVO")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Dispositivo {
+
     @Id
     @Column(length = 30)
     private String id;
@@ -21,4 +23,8 @@ public class Dispositivo {
     @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false, length = 30)
     private StatusEquipamento status;
+
+    @ManyToOne
+    @JoinColumn(name = "id_lab")
+    private Laboratorio laboratorio;
 }
