@@ -11,6 +11,11 @@ public class Verifica {
     private IdVerifica id;
 
     @ManyToOne
+    @MapsId("matricula")
+    @JoinColumn(name = "matricula")
+    private Monitor monitor;
+
+    @ManyToOne
     @MapsId("id")
     @JoinColumn(name = "id")
     private Dispositivo dispositivo;
